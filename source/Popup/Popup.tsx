@@ -14,7 +14,18 @@ const Popup: React.FC = () => {
   }, []);
 
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSpeedTime(`${Math.min(+e.target.value || 1, 60)}`);
+    const {value} = e.target;
+
+    if (
+      +value > 60 ||
+      value.indexOf('-') > -1 ||
+      value.indexOf('.') > -1 ||
+      value === '0'
+    ) {
+      return;
+    }
+
+    setSpeedTime(value);
   };
 
   const onSubmit = () => {
@@ -56,7 +67,7 @@ const Popup: React.FC = () => {
           min={1}
           max={60}
           value={speedTime}
-          onChange={onInputChange}
+          onInput={onInputChange}
         />
         <button
           className="primary"

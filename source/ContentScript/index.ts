@@ -99,8 +99,6 @@ function showProgress(video: HTMLVideoElement) {
 function syncDoubleTapSpeedTime() {
   browser.storage.local.get('speedTime').then(({speedTime}) => {
     doubleTapSpeedTime = +speedTime || 5;
-
-    console.log('sync double tap speed to ', doubleTapSpeedTime);
   });
 }
 
@@ -144,7 +142,6 @@ at.on('doubletap', (e) => {
   if (!target || target.tagName !== 'VIDEO') return;
 
   const {left, width} = target.getBoundingClientRect();
-  console.log(e);
 
   const isLeft = e.x < left + width / 2;
 
