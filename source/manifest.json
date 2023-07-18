@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Video faster",
-  "version": "0.0.1",
+  "name": "Video Speed",
+  "version": "1.0.0",
 
   "icons": {
     "16": "assets/icons/favicon-16.png",
@@ -9,9 +9,9 @@
     "48": "assets/icons/favicon-48.png",
     "128": "assets/icons/favicon-128.png"
   },
-  "description": "Mobile video speed controller by touch",
-  "homepage_url": "https://github.com/abhijithvijayan/web-extension-starter",
-  "short_name": "Video faster",
+  "description": "Web extension for mobile video speed controller by touch",
+  "homepage_url": "https://github.com/pzxie/video-speed-extension",
+  "short_name": "Video Speed",
 
   "permissions": [
     "activeTab",
@@ -26,12 +26,6 @@
   "__chrome|firefox__author": "pzxie",
   "__opera__developer": {
     "name": "pzxie"
-  },
-
-  "__firefox__applications": {
-    "gecko": {
-      "id": "{754FB1AD-CC3B-4856-B6A0-7786F8CA9D17}"
-    }
   },
 
   "__chrome__minimum_chrome_version": "49",

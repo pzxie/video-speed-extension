@@ -1,5 +1,5 @@
 <h1 align="center">video-speed</h1>
-<p align="center">Web extension for video speed controller. Started by web-extension-starter</p>
+<p align="center">Web extension for mobile video speed controller by touch. Started by web-extension-starter</p>
 
 
 ❤️ it? ⭐️ it on [GitHub](https://github.com/pzxie/video-speed-extension).

@@ -1,7 +1,7 @@
 {
   "name": "video-speed",
   "version": "1.0.0",
-  "description": "Web extension for video speed controller",
+  "description": "Web extension for mobile video speed controller by touch",
   "private": true,
   "repository": "https://github.com/pzxie/video-speed-extension",
   "author": {
