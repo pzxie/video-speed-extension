@@ -1,11 +1,14 @@
 import * as React from 'react';
 import browser from 'webextension-polyfill';
 
+import logo from '../assets/icons/favicon-128.png';
+
 import './styles.scss';
 
 const Popup: React.FC = () => {
   const [speedTime, setSpeedTime] = React.useState('5');
   const [error, setError] = React.useState('');
+  const [notice, setNotice] = React.useState('');
 
   React.useEffect(() => {
     browser.storage.local.get('speedTime').then(({speedTime}: any) => {
@@ -50,22 +53,30 @@ const Popup: React.FC = () => {
       })
       .catch((e: Error) => {
         const successNotice = saveSuccess
-          ? '<div><strong>Config saved success. Errors elsewhere:</strong></div>'
+          ? '<strong>Config saved success. Refresh the page if the config does not work</strong>'
           : '';
-        setError(successNotice + e.stack || '');
+
+        if (successNotice) {
+          setNotice(successNotice);
+          return;
+        }
+        if (e.stack) setError(e.stack);
       });
   };
 
   return (
     <section id="popup">
-      <h2>Video Speeder</h2>
+      <h2 className="header">
+        <img src={logo} className="logo" />
+        Video Speeder
+      </h2>
 
       <div className="form">
-        <span>DoubleTap Speed:</span>
+        <span>DoubleTap Seconds:</span>
         <input
           className="input"
           type="number"
-          placeholder="double tap times for faster"
+          placeholder="double tap seconds"
           min={1}
           max={60}
           value={speedTime}
@@ -92,9 +103,26 @@ const Popup: React.FC = () => {
               Hide Error
             </button>
           </div>
-          <code
+          <div className="errorCode">
+            <code>{error}</code>
+          </div>
+        </div>
+      )}
+      {notice && (
+        <div className="errorContainer noticeContainer">
+          <div className="errorTitle">
+            <h3>Note:</h3>
+            <button
+              className="info"
+              type="button"
+              onClick={() => setNotice('')}
+            >
+              Hide
+            </button>
+          </div>
+          <div
             className="errorCode"
-            dangerouslySetInnerHTML={{__html: error as string}}
+            dangerouslySetInnerHTML={{__html: notice as string}}
           />
         </div>
       )}
