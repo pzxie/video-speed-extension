@@ -1,5 +1,5 @@
 {
-  "name": "video-speed",
+  "name": "video-speeder",
   "version": "1.0.0",
   "description": "Web extension for mobile video speed controller by touch",
   "private": true,

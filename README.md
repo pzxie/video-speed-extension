@@ -1,4 +1,4 @@
-<h1 align="center">video-speed</h1>
+<h1 align="center">Video Speeder</h1>
 <p align="center">Web extension for mobile video speed controller by touch. Started by web-extension-starter</p>
 
 
