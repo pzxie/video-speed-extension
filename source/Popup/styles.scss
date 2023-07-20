@@ -82,13 +82,13 @@ button {
   border-radius: 6px;
 }
 
-.errorContainer {
+.messageContainer {
   width: 100%;
   padding: 12px 20px;
   background-color: #ddd;
   border-radius: 4px;
   overflow: hidden;
-  .errorTitle {
+  .messageTitle {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -102,16 +102,16 @@ button {
       margin-bottom: 0;
     }
   }
-  .errorCode {
+  .messageText {
     width: 100%;
     text-align: left;
     overflow: auto;
   }
 }
 
-.noticeContainer {
+.infoContainer {
   background-color: white;
-  .errorTitle h3 {
+  .messageTitle h3 {
     color: #666
   }
 }

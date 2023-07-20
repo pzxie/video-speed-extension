@@ -92,8 +92,8 @@ const Popup: React.FC = () => {
         </button>
       </div>
       {error && (
-        <div className="errorContainer">
-          <div className="errorTitle">
+        <div className="messageContainer">
+          <div className="messageTitle">
             <h3>Error:</h3>
             <button
               className="danger"
@@ -103,14 +103,14 @@ const Popup: React.FC = () => {
               Hide Error
             </button>
           </div>
-          <div className="errorCode">
+          <div className="messageText">
             <code>{error}</code>
           </div>
         </div>
       )}
       {notice && (
-        <div className="errorContainer noticeContainer">
-          <div className="errorTitle">
+        <div className="messageContainer infoContainer">
+          <div className="messageTitle">
             <h3>Note:</h3>
             <button
               className="info"
@@ -121,7 +121,7 @@ const Popup: React.FC = () => {
             </button>
           </div>
           <div
-            className="errorCode"
+            className="messageText"
             dangerouslySetInnerHTML={{__html: notice as string}}
           />
         </div>
