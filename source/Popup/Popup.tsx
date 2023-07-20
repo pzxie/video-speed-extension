@@ -29,16 +29,15 @@ const Popup: React.FC = () => {
   };
 
   const onSubmit = () => {
+    let saveSuccess = false;
+
     browser.storage.local
       .set({
         speedTime,
       })
       .then(() => {
+        saveSuccess = true;
         return browser.tabs.query({active: true, currentWindow: true});
-        // return window.chrome.runtime.sendMessage({
-        //   type: 'video_faster_double_tap_speed',
-        //   data: speedTime,
-        // });
       })
       .then((tab: any[]) => {
         return browser.tabs.sendMessage(tab[0].id, {
@@ -50,13 +49,16 @@ const Popup: React.FC = () => {
         window.close();
       })
       .catch((e: Error) => {
-        setError(e.stack || '');
+        const successNotice = saveSuccess
+          ? '<div><strong>Config saved success. Errors elsewhere:</strong></div>'
+          : '';
+        setError(successNotice + e.stack || '');
       });
   };
 
   return (
     <section id="popup">
-      <h2>Video faster</h2>
+      <h2>Video Speeder</h2>
 
       <div className="form">
         <span>DoubleTap Speed:</span>
@@ -90,7 +92,10 @@ const Popup: React.FC = () => {
               Hide Error
             </button>
           </div>
-          <code className="errorCode">{error}</code>
+          <code
+            className="errorCode"
+            dangerouslySetInnerHTML={{__html: error as string}}
+          />
         </div>
       )}
     </section>
