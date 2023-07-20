@@ -127,6 +127,19 @@ module.exports = {
           'sass-loader', // Takes the Sass/SCSS file and compiles to the CSS
         ],
       },
+      {
+        test: /\.(ico|png|jpg|jpeg|gif|webp|woff|woff2|eot|ttf|otf|ogg|mp3|mp4|m4v)$/i,
+        use: [
+          {
+            loader: require.resolve('url-loader'),
+            options: {
+              limit: 8096,
+              esModule: false,
+              name: `media/[name].[contenthash:10].[ext]`,
+            },
+          },
+        ],
+      },
     ],
   },
 
@@ -154,13 +167,6 @@ module.exports = {
       chunks: ['popup'],
       hash: true,
       filename: 'popup.html',
-    }),
-    new HtmlWebpackPlugin({
-      template: path.join(viewsPath, 'options.html'),
-      inject: 'body',
-      chunks: ['options'],
-      hash: true,
-      filename: 'options.html',
     }),
     // write css file(s) to build folder
     new MiniCssExtractPlugin({filename: 'css/[name].css'}),
