@@ -1,9 +1,12 @@
 {
 	"extends": [
-		"@abhijithvijayan/eslint-config/typescript",
-		"@abhijithvijayan/eslint-config/node",
-		"@abhijithvijayan/eslint-config/react"
+		"eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+		"prettier"
 	],
+	"plugins": ["prettier"],
+	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"project": [
 			"./tsconfig.json"

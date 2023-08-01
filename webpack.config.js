@@ -128,7 +128,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(ico|png|jpg|jpeg|gif|webp|woff|woff2|eot|ttf|otf|ogg|mp3|mp4|m4v)$/i,
+        test: /\.(ico|png|jpg|jpeg|gif|svg|webp|woff|woff2|eot|ttf|otf|ogg|mp3|mp4|m4v)$/i,
         use: [
           {
             loader: require.resolve('url-loader'),
